@@ -10,7 +10,7 @@ const {
 	fromGlobalId,
 	connectionDefinitions,
 	connectionArgs,
-	connectionFromArray,
+	connectionFromPromisedArray,
 } = require('graphql-relay');
 
 const {
@@ -49,7 +49,7 @@ module.exports = new GraphQLSchema({
 				type: connectionType,
 				args: connectionArgs,
 				resolve: (_, pArgs) =>
-					connectionFromArray(getAllCharacters(), pArgs)
+					connectionFromPromisedArray(getAllCharacters(), pArgs)
 			},
 			node: nodeField,
 			jonSnow: {
